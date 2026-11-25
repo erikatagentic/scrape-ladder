@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swap night schedule</title>
+</head>
+<body>
+  <div id="app"><noscript>Please enable JavaScript to see the swap schedule.</noscript></div>
+  <script>
+    // The content only exists after this script runs. Bracket lookups keep the
+    // sample free of dotted names.
+    var lines = [
+      "Swap nights run on the first Thursday of every month in the branch meeting room, from six until eight in the evening.",
+      "Bring seeds in labeled envelopes. Write the crop, the year you saved them, and the street where they grew, so other growers can pick seeds from gardens like theirs.",
+      "Volunteers sort the table by crop before the doors open. Beans, squash and tomatoes go on the long table, herbs and flowers on the round one by the window.",
+      "If you have nothing to bring, come anyway. Every swap keeps a basket of packets for first-time growers, and a volunteer will walk you through what grows well here."
+    ];
+    var html = "<article><h1>Swap night schedule</h1>";
+    for (var i = 0; i < lines["length"]; i++) {
+      html += "<p>" + lines[i] + "</p>";
+    }
+    document["getElementById"]("app")["innerHTML"] = html + "</article>";
+  </script>
+</body>
+</html>

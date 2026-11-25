@@ -1,0 +1,7 @@
+{
+  "data": [
+    {"branch": "Riverbend", "crop": "beans", "packets_out": 142},
+    {"branch": "Riverbend", "crop": "squash", "packets_out": 118},
+    {"branch": "Hillcrest", "crop": "kale", "packets_out": 53}
+  ]
+}

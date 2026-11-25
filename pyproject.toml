@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scrape-ladder"
+version = "0.1.0"
+description = "Scrape a public page by climbing polite, free methods, cheapest first."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Erik Hernal", email = "erik@erikhernal.com" }]
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn>=0.30.0",
+  "pydantic>=2.8.0",
+  "httpx>=0.27.0",
+  "trafilatura>=2.0.0",
+  "selectolax>=0.4.9",
+  "extruct>=0.18.0",
+  "openpyxl>=3.1.0",
+]
+
+[project.optional-dependencies]
+browser = ["playwright>=1.50.0"]
+dev = ["pytest>=8.3.0", "pytest-asyncio>=0.24.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

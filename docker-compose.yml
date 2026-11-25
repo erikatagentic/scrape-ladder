@@ -1,0 +1,24 @@
+# docker compose up --build, then:
+#   curl -s -X POST localhost:8080/scrape-url -H 'content-type: application/json' \
+#     -d '{"url":"http://fixture.test/article.html"}'
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      # fixture.test lives on the compose network, which is a private network, so the
+      # internal-address guard would refuse it. This names it as the one trusted host.
+      SCRAPE_LADDER_TRUSTED_HOSTS: fixture.test
+    depends_on:
+      - fixture
+
+  fixture:
+    image: python:3.12-slim
+    command: ["python", "-m", "http.server", "80", "--directory", "/site"]
+    volumes:
+      - ./fixtures/site:/site:ro
+    networks:
+      default:
+        aliases:
+          - fixture.test
